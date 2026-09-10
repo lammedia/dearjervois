@@ -1,28 +1,38 @@
-import type { SchemaTypeDefinition } from "./types";
 import { navLink, page, siteSettings } from "./documents";
+import { menu, menuImport, menuItem, menuSection } from "./menu";
 import {
+  booking,
   cta,
   gallery,
   hero,
   hours,
-  menuItem,
-  menuSection,
+  menuBlock,
+  menuTeaser,
   prose,
   split,
+  testimonials,
 } from "./objects";
+import type { SchemaTypeDefinition } from "./types";
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   // Documents
   page,
   siteSettings,
-  // Objects
-  navLink,
-  cta,
+  menu,
+  menuImport,
+  // Page sections
   hero,
   prose,
   split,
-  menuSection,
-  menuItem,
+  testimonials,
+  menuTeaser,
+  booking,
   gallery,
   hours,
+  menuBlock,
+  // Shared objects
+  navLink,
+  cta,
+  menuSection,
+  menuItem,
 ];

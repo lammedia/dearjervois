@@ -1,61 +1,97 @@
 @import "tailwindcss";
 
 /*
- * DESIGN TOKENS — PLACEHOLDER
- * ---------------------------
- * These values are NOT the Dear Jervois brand. The live site was unreachable
- * from the build environment, so no colours, typefaces or spacing could be
- * sampled from it. Everything below is a deliberately neutral, low-contrast
- * base chosen to be replaced.
+ * DESIGN TOKENS — Dear Jervois /2026/
+ * -----------------------------------
+ * Sampled from the supplied full-page screenshots of /2026/. The theme ZIP's
+ * compiled options (cache/variables.less) describe the PREVIOUS design
+ * (Roboto Slab, #cb7152 terracotta, white ground) and were deliberately not
+ * used for colour or type — per the brief, the screenshots take precedence.
  *
- * To apply the real brand: change the values in this block only. Components
- * reference tokens exclusively — no component hard-codes a colour or font.
+ * Only two values survived from the ZIP because they are structural rather
+ * than stylistic: the 1260px container max-width (@site-max-width) and the
+ * 900px mobile-nav breakpoint (.responsive-layout in style.css).
  */
 @theme {
-  --color-surface: #fbfaf7;
-  --color-surface-raised: #ffffff;
-  --color-ink: #1c1a17;
-  --color-ink-muted: #5c574f;
-  --color-line: #e4e0d8;
-  --color-accent: #6a6a4f;
-  --color-accent-ink: #ffffff;
+  /* Grounds. The site alternates three full-bleed section colours. */
+  --color-navy: #12306b;
+  --color-teal: #15262e;
+  --color-ink: #0d1418;
+  --color-cream: #f5f1e8;
 
-  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  /* Gold is the accent for every heading, label, rule and border. */
+  --color-gold: #c6a15b;
+  --color-gold-soft: #d9b87c;
+  --color-gold-dim: #8d7440;
+
+  /* Type on dark grounds. */
+  --color-body: #ffffff;
+  --color-body-muted: #d6d4cd;
+
+  --font-display: var(--font-display), "Times New Roman", serif;
+  --font-script: var(--font-script), "Segoe Script", cursive;
   --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  /* From the theme's @site-max-width. */
+  --container-site: 1260px;
+
+  /* The nav collapses here, matching the WordPress theme's own breakpoint. */
+  --breakpoint-nav: 900px;
 }
 
 :root {
-  color-scheme: light;
-}
-
-html {
-  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  /* The header is sticky and overlays content; anchors must clear it. */
+  scroll-padding-top: 6rem;
+}
+
 body {
-  background-color: var(--color-surface);
-  color: var(--color-ink);
+  background-color: var(--color-ink);
+  color: var(--color-body);
   font-family: var(--font-body);
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Visible keyboard focus everywhere, never removed. */
+/*
+ * The signature treatment: letterspaced Cinzel caps. Tracking this wide needs
+ * the trailing space compensated or the text reads off-centre.
+ */
+.u-caps {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+}
+
+.u-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-gold);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
 }

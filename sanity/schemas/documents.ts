@@ -27,9 +27,12 @@ export const page: SchemaTypeDefinition = {
         { type: "hero" },
         { type: "prose" },
         { type: "split" },
-        { type: "menu" },
+        { type: "testimonials" },
+        { type: "menuTeaser" },
+        { type: "booking" },
         { type: "gallery" },
         { type: "hours" },
+        { type: "menuBlock" },
       ],
     },
   ],
@@ -56,6 +59,21 @@ export const siteSettings: SchemaTypeDefinition = {
     },
     { name: "email", type: "string" },
     { name: "phone", type: "string" },
+    {
+      name: "hours",
+      type: "array",
+      description: "Shown in the footer and on the hours sections.",
+      of: [
+        {
+          type: "object",
+          name: "hoursRow",
+          fields: [
+            { name: "days", type: "string" },
+            { name: "hours", type: "string" },
+          ],
+        },
+      ],
+    },
     { name: "social", type: "array", of: [{ type: "navLink" }] },
   ],
 };
