@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/*
+ * DESIGN TOKENS — PLACEHOLDER
+ * ---------------------------
+ * These values are NOT the Dear Jervois brand. The live site was unreachable
+ * from the build environment, so no colours, typefaces or spacing could be
+ * sampled from it. Everything below is a deliberately neutral, low-contrast
+ * base chosen to be replaced.
+ *
+ * To apply the real brand: change the values in this block only. Components
+ * reference tokens exclusively — no component hard-codes a colour or font.
+ */
+@theme {
+  --color-surface: #fbfaf7;
+  --color-surface-raised: #ffffff;
+  --color-ink: #1c1a17;
+  --color-ink-muted: #5c574f;
+  --color-line: #e4e0d8;
+  --color-accent: #6a6a4f;
+  --color-accent-ink: #ffffff;
+
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible keyboard focus everywhere, never removed. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
