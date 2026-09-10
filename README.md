@@ -1,5 +1,9 @@
 # Dear Jervois
 
+> Nestled in the heart of Herne Bay Auckland, Dear Jervois is a casual dining
+> space that caters for all diets and preferences in a way that promotes health
+> and well being.
+
 A clean rebuild of the Dear Jervois `/2026/` site in Next.js, structured so all
 content can move to Sanity CMS without touching the rendering layer.
 
